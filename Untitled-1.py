@@ -1,7 +1,6 @@
-from cgitb import html
 import markdown
 
-f = open('/home/admin/Descargas/github/what-to-review/2. La Agonía del Régimen de la Restauración.md',"r")
+f = open('2. La Agonía del Régimen de la Restauración.md',"r")
 list = []
 for line in f:
     list.append(line)
@@ -22,6 +21,7 @@ for i in range(len(list)):
         except:
             print("Se acabo el texto")
         ## Le pongo el Heading
+        print(cont)
         list_with_wrongs.append(list[i])
         for x in range(cont2):
             ## Si hay una sola línea que tenga algo mal poner el apartado entero
