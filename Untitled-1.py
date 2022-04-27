@@ -1,6 +1,7 @@
-import re
+from cgitb import html
+import markdown
 
-f = open("2. La Agonía del Régimen de la Restauración.md","r")
+f = open('/home/admin/Descargas/github/what-to-review/2. La Agonía del Régimen de la Restauración.md',"r")
 list = []
 for line in f:
     list.append(line)
@@ -27,12 +28,14 @@ for i in range(len(list)):
             if list[i+x+1].find('mark') != -1:
                 for z in range(cont2):
                     list_with_wrongs.append(list[i+z+1])
-                    print(i+z+1)
                 break
             else:
                 break
 
+full_text= ""
 for i in list_with_wrongs:
-    print(i + "\n")    
-            
-    
+    full_text = full_text + i
+
+htmlf = markdown.markdown(full_text)
+htmlfinal = open("Pa repasar.html","w")
+htmlfinal.write(htmlf)
